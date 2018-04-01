@@ -21,8 +21,10 @@ class ChatUtils:
         Stores roles so they aren't constantly searched for.
         """
         self.guild = get_discord_object(self.bot.guilds, config.guild_id)
-        self.offtopic_role = get_discord_object(self.guild.roles, 
-                                                config.offtopic_id)
+
+        if self.guild:
+            self.offtopic_role = get_discord_object(self.guild.roles, 
+                                                    config.offtopic_id)
 
     @commands.command()
     async def offtopic(self, ctx):
@@ -48,15 +50,15 @@ class ChatUtils:
         guild = ctx.guild
 
         if guild:
-            desc = (f'**❄ Owner:** {guild.owner} (ID: {guild.owner.id})\n'
-                    f'**❄ Members:** {len(guild.members)}\n'
-                    f'**❄ Channels:** {len(guild.channels)} '
+            desc = (f'**☆ Owner:** {guild.owner} (ID: {guild.owner.id})\n'
+                    f'**☆ Members:** {len(guild.members)}\n'
+                    f'**☆ Channels:** {len(guild.channels)} '
                     f'({len(guild.categories)} categories,'
                     f' {len(guild.text_channels)} text,'
                     f' {len(guild.voice_channels)} voice)\n'
-                    f'**❄ Roles:** {len(guild.roles)}\n'
-                    f'**❄ Region:** {guild.region}\n'
-                    f'**❄ Created at:** '
+                    f'**☆ Roles:** {len(guild.roles)}\n'
+                    f'**☆ Region:** {guild.region}\n'
+                    f'**☆ Created at:** '
                     f'{ctx.guild.created_at.strftime("%d %B %Y %I:%M%p UTC")}')
 
             embed = discord.Embed(title=f'{guild.name} (ID: {guild.id})',

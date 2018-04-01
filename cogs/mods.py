@@ -201,7 +201,7 @@ class Mods:
                        if entry.user.id == member]
         if banned_user:
             await ctx.guild.unban(obj, reason=reason)
-            await ctx.message.add_reaction('\N{OK HAND SeGN}')
+            await ctx.message.add_reaction('\N{OK HAND SIGN}')
         else:
             await ctx.message.add_reaction('\N{FACE WITH NO GOOD GESTURE}')
 

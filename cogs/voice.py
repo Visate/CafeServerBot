@@ -40,7 +40,7 @@ class Voice:
         elif after.channel is None and before.channel is not None:
             await member.remove_roles(self.voice_role)
 
-    @commands.command(alias=['showvc'], name='showvoicechat')
+    @commands.command(aliases=['showvc'], name='showvoicechat')
     async def show_voice_chat(self, ctx):
         """
         Toggles the voice visible (👀) role,

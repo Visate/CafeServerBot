@@ -28,6 +28,7 @@ class MaidKotori(commands.Bot):
         await self.get_channel(428662180116692992).send("( · 8 · )")
         self.get_cog('Mods').initialize()
         self.get_cog('Voice').initialize()
+        self.get_cog('ChatUtils').initialize()
 
     async def on_resume(self):
         print('Bot resumed.')

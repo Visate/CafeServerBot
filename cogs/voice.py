@@ -35,10 +35,12 @@ class Voice:
         If member is leaving the voice channel, remove the voice from from them
         """
         if before.channel is None and after.channel is not None:
-            await member.add_roles(self.voice_role)
+            await member.add_roles(self.voice_role, 
+                                   reason='Entered voice chat.')
 
         elif after.channel is None and before.channel is not None:
-            await member.remove_roles(self.voice_role)
+            await member.remove_roles(self.voice_role,
+                                      reason='Left voice chat.')
 
     @commands.command(aliases=['showvc'], name='showvoicechat')
     async def show_voice_chat(self, ctx):
